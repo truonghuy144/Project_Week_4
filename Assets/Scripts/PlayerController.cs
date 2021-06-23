@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,13 +14,24 @@ public class PlayerController : MonoBehaviour
     private float strafeAcceleration = 2f,
                   hoverAcceleration = 2f;
 
+    private Rigidbody playerRb;
     private float minX, maxX, minY, maxY;
 
     private float maxRotation = 25f; 
+    
+    public GameObject misslesPrefabs;
+    public Transform missleSpawnPos1, missleSpawnPos2;
+
+    public int maxHealth = 5;
+    private int currentHealth;
+    public InGameManager inGameManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerRb = GetComponent<Rigidbody>();
         SetUpBoundries();
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -28,8 +40,20 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
         
         CalculateBoundries();
+        FireRockets();
+    }
+    
+    //Fire Rockets
+    private void FireRockets()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(misslesPrefabs, missleSpawnPos1.position, misslesPrefabs.transform.rotation);
+            Instantiate(misslesPrefabs, missleSpawnPos2.position, misslesPrefabs.transform.rotation);
+        }
     }
 
+    // Rotate Player
     private void RotatePlayer()
     {
         float currentX = transform.position.x;
@@ -38,7 +62,7 @@ public class PlayerController : MonoBehaviour
         if (currentX < 0)
         {
             //Rotate negative
-            newRotationZ = Mathf.Lerp(0f, -maxRotation, currentX / minX);
+            newRotationZ = Mathf.Lerp(0f, - maxRotation, currentX / minX);
         }
         else
         {
@@ -51,6 +75,7 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = newRotation;
     }
     
+    // Calculate Bound Screen
     private void CalculateBoundries()
     {
         Vector3 currentPosition = transform.position;
@@ -78,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
         minY = bottomCorners.y - objectHeight;
         maxY = topCorners.y - objectHeight * 4.5f;
+       
     }
     
     // Update is called once per frame
@@ -92,4 +118,25 @@ public class PlayerController : MonoBehaviour
         transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime * strafeSpeed
                                + transform.up * activeHoverSpeed * Time.deltaTime * hoverSpeed);
     }
+
+    public void OnMeteorImpact()
+    {
+        currentHealth--;
+        
+        //change health bar
+        inGameManager.ChangeHealthBar(maxHealth, currentHealth);
+        
+        
+        if (currentHealth == 0) // called once
+        {
+            
+        }
+    }
+
+    public void OnPlayerDeath()
+    {
+        //play animation
+        Debug.Log("Player Died");
+    }
+    
 }
