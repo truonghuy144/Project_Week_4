@@ -27,10 +27,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ScifiManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ScifiController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shooting.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InGameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MeteorController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MeteorManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/InGameManager.cs" />
       </list>
     </option>
   </component>
@@ -75,7 +75,8 @@
       <updated>1624349509386</updated>
       <workItem from="1624349516858" duration="6042000" />
       <workItem from="1624372242808" duration="10906000" />
-      <workItem from="1624426333918" duration="29801000" />
+      <workItem from="1624426333918" duration="30462000" />
+      <workItem from="1624523470463" duration="7990000" />
     </task>
     <servers />
   </component>

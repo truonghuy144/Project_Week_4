@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarFill: {fileID: 1889922169}
-  healthBarChangeTime: 20
+  healthBarChangeTime: 100
   pauseMenu: {fileID: 1643704375}
   deathMenu: {fileID: 1119083764}
 --- !u!4 &356266983

@@ -31,7 +31,8 @@ public class MeteorManager : MonoBehaviour
     public float spawnTime = 2f;
     private float timer = 0f;
     
-    [HideInInspector]
+    public List<GameObject> aliveMeteor  = new List<GameObject>();
+    
     public float minSpawnX = -2f, maxSpawnX = 2f, minSpawnY = -1f, maxSpawnY = 0f;
     
     // Start is called before the first frame update
@@ -54,11 +55,26 @@ public class MeteorManager : MonoBehaviour
 
     private void SpawnNewMeteor()
     {
-        float newX = Random.Range(minSpawnX, maxSpawnX);
-        float newY = Random.Range(minSpawnY, maxSpawnY);
-        
-        Vector3 spawnPos = new Vector3(newX, newY, meteorSpawnDistance);
+       Vector3 spawnPos = new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), meteorSpawnDistance);
 
-        Instantiate(meteorPrefabs[Random.Range(0, meteorPrefabs.Length)], spawnPos, meteorPrefabs[Random.Range(0,meteorPrefabs.Length)].transform.rotation);    
+        GameObject Go = Instantiate(meteorPrefabs[Random.Range(0, meteorPrefabs.Length)], spawnPos, meteorPrefabs[Random.Range(0,meteorPrefabs.Length)].transform.rotation);    
+        aliveMeteor.Add(Go);
+    }
+
+    public void UpdateMeteors(List<GameObject> targetedMeteors)
+    {
+        foreach (GameObject meteor in aliveMeteor)
+        {
+            if (targetedMeteors.Contains(meteor))
+            {
+                //change material
+                meteor.GetComponent<MeteorController>().SetTargetMaterial();
+            }
+            else
+            {
+                //reset it
+                meteor.GetComponent<MeteorController>().ResetMaterial();
+            }
+        }
     }
 }

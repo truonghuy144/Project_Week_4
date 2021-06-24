@@ -12,6 +12,10 @@ public class MeteorController : MonoBehaviour
     private float removeMeteorPosZ;
     
     private Rigidbody meteorRb;
+
+    public Material targetMaterial;
+    private Material baseMaterial;
+    private Renderer[] renderers;
     
     // Start is called before the first frame update
     void Start()
@@ -20,13 +24,39 @@ public class MeteorController : MonoBehaviour
         randomMeteorRotation = new Vector3(Random.Range(minRotate,maxRotate),Random.Range(minRotate,maxRotate),Random.Range(minRotate,maxRotate));
         
         removeMeteorPosZ = Camera.main.transform.position.z;
+
+        renderers = GetComponentsInChildren<Renderer>();
+        baseMaterial = renderers[0].material;
     }
 
+    public void ResetMaterial()
+    {
+        if (renderers == null)
+            return;
+
+        foreach (Renderer rend in renderers)
+        {
+            rend.material = baseMaterial;
+        }
+    }
+
+    public void SetTargetMaterial()
+    {
+        if (renderers == null)
+            return;
+
+        foreach (Renderer rend in renderers)
+        {
+            rend.material = targetMaterial;
+        }
+    }
+    
     // Update is called once per frame
     void Update()
     {
         if (transform.position.z < removeMeteorPosZ)
         {
+            MeteorManager.Instance.aliveMeteor.Remove(gameObject);
             Destroy(gameObject);
         }
         
@@ -38,6 +68,8 @@ public class MeteorController : MonoBehaviour
 
     public void DestroyMeteor()
     {
+        //Remove from alive list
+        MeteorManager.Instance.aliveMeteor.Remove(gameObject);
         //play partical fx
         
         //disable movement

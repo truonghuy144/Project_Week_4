@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: -2284334141569337306}
   - component: {fileID: -1093312026762725845}
   - component: {fileID: 8295083876411394784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Meteorite
   m_TagString: Meteor
   m_Icon: {fileID: 0}
@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a640e4eb025af8f4c8389e9424cb7bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteorSpeed: 1000
+  meteorSpeed: 500
+  targetMaterial: {fileID: 2100000, guid: 58a0c1accc4d3434ab98b29c4c23b117, type: 2}
 --- !u!65 &-1093312026762725845
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -20,11 +20,17 @@ public class PlayerController : MonoBehaviour
     private float maxRotation = 25f; 
     
     public GameObject misslesPrefabs;
-    public Transform missleSpawnPos1, missleSpawnPos2;
+    public Transform[] missleSpawnPoints;
 
     public int maxHealth = 5;
     private int currentHealth;
     public InGameManager inGameManager;
+
+    private Vector3 raycastDirection = new Vector3(0f, 0f, 1f);
+    public float raycastDistance = 100f;
+    private int layerMask;
+    
+    private List<GameObject> previousTagets = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +38,8 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         SetUpBoundries();
         currentHealth = maxHealth;
+
+        layerMask = LayerMask.GetMask("EnemyRaycastLayer");
     }
 
     void Update()
@@ -40,16 +48,64 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
         
         CalculateBoundries();
+        
         FireRockets();
+        
+        RaycastForMeteor();
+    }
+
+    private void RaycastForMeteor()
+    {
+        List<GameObject> currentTargets = new List<GameObject>();
+        foreach (Transform misslesSpawnPoint in missleSpawnPoints)
+        {
+            RaycastHit hit;
+            Ray ray = new Ray(misslesSpawnPoint.position, raycastDirection);
+
+            if (Physics.Raycast(ray, out hit, raycastDistance, layerMask))
+            {
+                GameObject target = hit.transform.gameObject;
+                currentTargets.Add(target);
+            }
+        }
+
+        bool listsChange = false;
+        //Check if the previous and current are the same
+        if (currentTargets.Count != previousTagets.Count)
+        {
+            listsChange = true;
+        }
+        else
+        {
+            for (int i = 0; i < currentTargets.Count; i++)
+            {
+                if (currentTargets[i] != previousTagets[i])
+                {
+                    listsChange = true;
+                }
+            }
+        }
+
+        if (listsChange == true)
+        {
+            //Update Meteor
+            MeteorManager.Instance.UpdateMeteors(currentTargets);
+            
+            previousTagets = currentTargets;
+        }
+        
     }
     
     //Fire Rockets
     private void FireRockets()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(misslesPrefabs, missleSpawnPos1.position, misslesPrefabs.transform.rotation);
-            Instantiate(misslesPrefabs, missleSpawnPos2.position, misslesPrefabs.transform.rotation);
+            foreach (Transform roketsSpawnPoint in missleSpawnPoints)
+            {
+                Instantiate(misslesPrefabs, roketsSpawnPoint.position, misslesPrefabs.transform.rotation);
+            }
         }
     }
 

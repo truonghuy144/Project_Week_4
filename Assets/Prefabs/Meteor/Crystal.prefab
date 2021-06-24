@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6019187880510289339}
   - component: {fileID: 3571046273252182359}
   - component: {fileID: -2077011710513590544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crystal
   m_TagString: Meteor
   m_Icon: {fileID: 0}
@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a640e4eb025af8f4c8389e9424cb7bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteorSpeed: 1000
+  meteorSpeed: 500
+  targetMaterial: {fileID: 2100000, guid: d5267543621b57849bf7e75fce60fca1, type: 2}
