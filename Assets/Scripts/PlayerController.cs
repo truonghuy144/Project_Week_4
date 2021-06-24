@@ -48,9 +48,7 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
         
         CalculateBoundries();
-        
         FireRockets();
-        
         RaycastForMeteor();
     }
 
@@ -97,7 +95,7 @@ public class PlayerController : MonoBehaviour
     }
     
     //Fire Rockets
-    private void FireRockets()
+    public void FireRockets()
     {
         
         if (Input.GetKeyDown(KeyCode.Space))
@@ -106,6 +104,7 @@ public class PlayerController : MonoBehaviour
             {
                 Instantiate(misslesPrefabs, roketsSpawnPoint.position, misslesPrefabs.transform.rotation);
             }
+            
         }
     }
 

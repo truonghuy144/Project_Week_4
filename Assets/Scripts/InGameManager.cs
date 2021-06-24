@@ -12,6 +12,7 @@ public class InGameManager : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject deathMenu;
+
     
     public void ChangeHealthBar(int maxHealth, int currentHealth)
     {
@@ -40,6 +41,8 @@ public class InGameManager : MonoBehaviour
             yield return null;
         }
     }
+
+    
     public void OnMenuButtonClicked()
     {
         SceneManager.LoadScene("MenuScene");
@@ -72,6 +75,8 @@ public class InGameManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
+    
 
     public void OpenDeathMenu()
     {

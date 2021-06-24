@@ -12,13 +12,65 @@ public class MenuManager : MonoBehaviour
    public float transitionTime = 1f;
    private int screenWidth;
 
+   public Transform shopButtonsParent;
+   private GameObject currentSpaceshipPreview = null;
+   public float rotationSpeed = 10f;
+
    private void Start()
    {
       InitLevelButton();
       screenWidth = Screen.width;
+      InitShopButton();
+      UpdateSpaceshipPreview();
    }
 
+   private void Update()
+   {
+      if (currentSpaceshipPreview != null)
+      {
+         currentSpaceshipPreview.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+      }
+   }
 
+   private void UpdateSpaceshipPreview()
+   {
+      if (currentSpaceshipPreview != null)
+      {
+         Destroy(currentSpaceshipPreview);
+      }
+
+      GameObject newSpaceshipPrefab = GameManager.Instance.currentSpaceship;
+      Vector3 startRotationVector = new Vector3(0f,360f,0f); 
+      currentSpaceshipPreview = Instantiate(newSpaceshipPrefab, Vector3.zero, Quaternion.Euler(startRotationVector));
+
+   }
+   
+   private void InitShopButton()
+   {
+      int i = 0;
+      foreach (Transform shopButton in shopButtonsParent)
+      {
+         int currentIndex = i;
+         
+         //create sprites
+         Texture2D texture = GameManager.Instance.spaceShipTexture[currentIndex];
+         Rect newRect = new Rect(0f,0f,texture.width,texture.height);
+         Sprite newSprite = Sprite.Create(texture,newRect,new Vector2(0.5f,0.5f));
+         shopButton.GetComponent<Image>().sprite = newSprite;
+
+         //Onclick Event
+         Button button = shopButton.GetComponent<Button>();
+         button.onClick.AddListener(() => OnShopButtonClicked(currentIndex));
+         i++;
+      }
+   }
+
+   private void OnShopButtonClicked(int index)
+   {
+      GameManager.Instance.ChangeCurrentSpaceship(index);
+      UpdateSpaceshipPreview();
+   }
+   
    public void InitLevelButton()
    {
       int i = 1;
@@ -37,6 +89,10 @@ public class MenuManager : MonoBehaviour
       if (menuType == MenuType.Map1Menu)
       {
          menuPos = new Vector3(-screenWidth, 0f,0f);
+      }
+      else if (menuType == MenuType.ShopMenu)
+      {
+         menuPos = new Vector3(screenWidth, 0f,0f);
       }
       //default
       else
@@ -83,10 +139,16 @@ public class MenuManager : MonoBehaviour
    {
       Debug.Log("Next Map Clicked");
    }
+
+   public void OnShopButtonClicked()
+   {
+      ChangeMenu(MenuType.ShopMenu);
+   }
    
    private enum MenuType
    {
       MainMenu,
-      Map1Menu
+      Map1Menu,
+      ShopMenu
    }
 }
