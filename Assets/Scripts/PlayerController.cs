@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         ControlPlayer();
         RotatePlayer();
         
-        CalculateBoundries();
+        CalculateBoundaries();
         FireRockets();
         RaycastForMeteor();
     }
@@ -100,9 +100,9 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (Transform roketsSpawnPoint in missleSpawnPoints)
+            foreach (Transform rocketsSpawnPoint in missleSpawnPoints)
             {
-                Instantiate(misslesPrefabs, roketsSpawnPoint.position, misslesPrefabs.transform.rotation);
+                Instantiate(misslesPrefabs, rocketsSpawnPoint.position, misslesPrefabs.transform.rotation);
             }
             
         }
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
     }
     
     // Calculate Bound Screen
-    private void CalculateBoundries()
+    private void CalculateBoundaries()
     {
         Vector3 currentPosition = transform.position;
 
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
         
         if (currentHealth == 0) // called once
         {
-            
+            OnPlayerDeath();
         }
     }
 

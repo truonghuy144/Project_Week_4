@@ -16,6 +16,7 @@
           <e p="PlayerManager.cs" t="Include" />
           <e p="ScifiController.cs" t="Include" />
           <e p="ScifiManager.cs" t="Include" />
+          <e p="ScoreManager.cs" t="Include" />
           <e p="Shooting.cs" t="Include" />
         </e>
         <e p="Source" t="Include">

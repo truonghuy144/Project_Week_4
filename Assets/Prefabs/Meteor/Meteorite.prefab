@@ -91,8 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8141082842970426455}
   - component: {fileID: -2284334141569337306}
-  - component: {fileID: -1093312026762725845}
   - component: {fileID: 8295083876411394784}
+  - component: {fileID: 4686342715925060295}
   m_Layer: 6
   m_Name: Meteorite
   m_TagString: Meteor
@@ -129,19 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorSpeed: 500
   targetMaterial: {fileID: 2100000, guid: 58a0c1accc4d3434ab98b29c4c23b117, type: 2}
---- !u!65 &-1093312026762725845
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8912974521749198573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7, y: 7, z: 7}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8295083876411394784
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,3 +145,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &4686342715925060295
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912974521749198573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57724110529814546}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8471766299543596390}
@@ -91,8 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8471766299543596390}
   - component: {fileID: 4636254936670957533}
-  - component: {fileID: 2064170776736724863}
   - component: {fileID: -2414686916380897567}
+  - component: {fileID: -1322430071286000995}
   m_Layer: 6
   m_Name: Moon Rock Low
   m_TagString: Meteor
@@ -131,19 +131,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &2064170776736724863
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9140638446683666396}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 16.54029, y: 11.346536, z: 11.942921}
-  m_Center: {x: 0.1873365, y: 0.44211984, z: 6.6526604}
 --- !u!114 &-2414686916380897567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +145,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorSpeed: 500
   targetMaterial: {fileID: 2100000, guid: 1b32fd18cc29bc44697a4cd88e6e4d77, type: 2}
+--- !u!136 &-1322430071286000995
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9140638446683666396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 6.5512996
+  m_Height: 16.291256
+  m_Direction: 0
+  m_Center: {x: 0.10887305, y: -0.04919211, z: 1.3921928}

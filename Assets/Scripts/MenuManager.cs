@@ -16,6 +16,8 @@ public class MenuManager : MonoBehaviour
    private GameObject currentSpaceshipPreview = null;
    public float rotationSpeed = 10f;
 
+   public Text goldText;
+
    private void Start()
    {
       InitLevelButton();
@@ -144,6 +146,8 @@ public class MenuManager : MonoBehaviour
    {
       ChangeMenu(MenuType.ShopMenu);
    }
+
+   
    
    private enum MenuType
    {

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6574716559733709179}
   - component: {fileID: 7823261030561175262}
   - component: {fileID: 5437315058702066196}
-  - component: {fileID: 6019187880510289339}
   - component: {fileID: 3571046273252182359}
   - component: {fileID: -2077011710513590544}
+  - component: {fileID: 5736851982130190029}
   m_Layer: 6
   m_Name: Crystal
   m_TagString: Meteor
@@ -84,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6019187880510289339
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5797757029468472257}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1211014, y: 0.92235243, z: 1.0367419}
-  m_Center: {x: -0.007887602, y: -0.0074896356, z: 0.008937239}
 --- !u!54 &3571046273252182359
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorSpeed: 500
   targetMaterial: {fileID: 2100000, guid: d5267543621b57849bf7e75fce60fca1, type: 2}
+  isGoldenMeteor: 0
+--- !u!135 &5736851982130190029
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797757029468472257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Center: {x: 0.01, y: 0.01, z: 0.02}

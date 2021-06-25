@@ -30,6 +30,7 @@ public class Shooting : MonoBehaviour
         if (other.CompareTag("Meteor"))
         {
             other.gameObject.GetComponent<MeteorController>().DestroyMeteor();
+            ScoreManager.instance.AddPoint();
             Destroy(gameObject);
         }
     }

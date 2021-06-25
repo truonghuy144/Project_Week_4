@@ -16,7 +16,7 @@ public class MeteorController : MonoBehaviour
     public Material targetMaterial;
     private Material baseMaterial;
     private Renderer[] renderers;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +68,7 @@ public class MeteorController : MonoBehaviour
 
     public void DestroyMeteor()
     {
+        
         //Remove from alive list
         MeteorManager.Instance.aliveMeteor.Remove(gameObject);
         //play partical fx

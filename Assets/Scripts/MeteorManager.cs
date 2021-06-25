@@ -25,7 +25,6 @@ public class MeteorManager : MonoBehaviour
     #endregion
     
     public GameObject[] meteorPrefabs;
-
     public float meteorSpawnDistance ;
 
     public float spawnTime = 2f;
@@ -55,9 +54,14 @@ public class MeteorManager : MonoBehaviour
 
     private void SpawnNewMeteor()
     {
-       Vector3 spawnPos = new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), meteorSpawnDistance);
+        float newX = Random.Range(minSpawnX, maxSpawnX);
+        float newY = Random.Range(minSpawnY, maxSpawnY);
+        
+        Vector3 spawnPos = new Vector3(newX, newY, meteorSpawnDistance);
 
-        GameObject Go = Instantiate(meteorPrefabs[Random.Range(0, meteorPrefabs.Length)], spawnPos, meteorPrefabs[Random.Range(0,meteorPrefabs.Length)].transform.rotation);    
+        int meteorNumber = Random.Range(0, meteorPrefabs.Length);
+        GameObject Go = Instantiate(meteorPrefabs[meteorNumber], spawnPos, meteorPrefabs[meteorNumber].transform.rotation);
+        
         aliveMeteor.Add(Go);
     }
 
