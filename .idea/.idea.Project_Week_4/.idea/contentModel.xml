@@ -4,8 +4,32 @@
     <e p="C:\Users\USER\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\USER\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Project_Week_4.-708510073.00" t="ExcludeRecursive" />
     <e p="D:\Adobe\Augmented Reality\Unity\Project\JuniorProgramer\Project_Week4\Project_Week_4" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Joystick Pack" t="Include">
+          <e p="Examples" t="Include">
+            <e p="JoystickPlayerExample.cs" t="Include" />
+            <e p="JoystickSetterExample.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Base" t="Include">
+              <e p="Joystick.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="DynamicJoystickEditor.cs" t="Include" />
+              <e p="FloatingJoystickEditor.cs" t="Include" />
+              <e p="JoystickEditor.cs" t="Include" />
+              <e p="VariableJoystickEditor.cs" t="Include" />
+            </e>
+            <e p="Joysticks" t="Include">
+              <e p="DynamicJoystick.cs" t="Include" />
+              <e p="FixedJoystick.cs" t="Include" />
+              <e p="FloatingJoystick.cs" t="Include" />
+              <e p="VariableJoystick.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="GameManager.cs" t="Include" />
           <e p="InGameManager.cs" t="Include" />
@@ -14,6 +38,8 @@
           <e p="MeteorManager.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerManager.cs" t="Include" />
+          <e p="SaveClass.cs" t="Include" />
+          <e p="SaveManager.cs" t="Include" />
           <e p="ScifiController.cs" t="Include" />
           <e p="ScifiManager.cs" t="Include" />
           <e p="ScoreManager.cs" t="Include" />

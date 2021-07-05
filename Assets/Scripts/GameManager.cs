@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+#if UNITY_EDITOR
+    using UnityEditor;    
+#endif
 using UnityEngine;
 
 
@@ -18,13 +20,16 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    private void Awake()
+    void Start()
+    {   
+        #if UNITY_EDITOR
+        SpaceshipTexture();
+        #endif
+    }
+#if UNITY_EDITOR
+    [ContextMenu("SpaceshipTexture")]
+    public void SpaceshipTexture()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        
         spaceShipTexture = new Texture2D[spaceshipPrefabs.Length];
         for (int i = 0; i < spaceshipPrefabs.Length; i++)
         {
@@ -32,7 +37,20 @@ public class GameManager : MonoBehaviour
             Texture2D texture = AssetPreview.GetAssetPreview(prefab);
             spaceShipTexture[i] = texture;
         }
-
+    }
+#endif
+        
+    
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        #if UNITY_EDITOR
+        SpaceshipTexture();
+        #endif
         DontDestroyOnLoad(gameObject);
     }
 
@@ -40,4 +58,6 @@ public class GameManager : MonoBehaviour
     {
         currentSpaceshipIndex = index;
     }
+
+    
 }

@@ -27,6 +27,9 @@ public class MeteorManager : MonoBehaviour
     public GameObject[] meteorPrefabs;
     public float meteorSpawnDistance ;
 
+    public float goldenMeteorSpawnChange = 0.2f;
+    public GameObject goldenMeteorPrefab;
+
     public float spawnTime = 2f;
     private float timer = 0f;
     
@@ -59,10 +62,22 @@ public class MeteorManager : MonoBehaviour
         
         Vector3 spawnPos = new Vector3(newX, newY, meteorSpawnDistance);
 
-        int meteorNumber = Random.Range(0, meteorPrefabs.Length);
-        GameObject Go = Instantiate(meteorPrefabs[meteorNumber], spawnPos, meteorPrefabs[meteorNumber].transform.rotation);
+        float randomNumber = Random.Range(0f, 1f);
+
+        GameObject gameObject = null;
+        if (randomNumber < goldenMeteorSpawnChange)
+        {
+            // spawn golden meteor
+            gameObject = Instantiate(goldenMeteorPrefab, spawnPos, goldenMeteorPrefab.transform.rotation);
+        }
+        else
+        {
+            // spawn normal meteor
+            int meteorNumber = Random.Range(0, meteorPrefabs.Length);
+            gameObject = Instantiate(meteorPrefabs[meteorNumber], spawnPos, meteorPrefabs[meteorNumber].transform.rotation);
+        }
         
-        aliveMeteor.Add(Go);
+        aliveMeteor.Add(gameObject);
     }
 
     public void UpdateMeteors(List<GameObject> targetedMeteors)

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Joystick inputJoystick;
+    
+
     public float strafeSpeed = 10f, 
                  hoverSpeed = 7.5f;
 
@@ -14,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private float strafeAcceleration = 2f,
                   hoverAcceleration = 2f;
 
-    private Rigidbody playerRb;
+    private Rigidbody playerRigidbody;
     private float minX, maxX, minY, maxY;
 
     private float maxRotation = 25f; 
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
         SetUpBoundries();
         currentHealth = maxHealth;
 
@@ -157,7 +160,7 @@ public class PlayerController : MonoBehaviour
         maxX = topCorners.x - objectWidth;
 
         minY = bottomCorners.y - objectHeight;
-        maxY = topCorners.y - objectHeight * 4.5f;
+        maxY = topCorners.y - objectHeight;
        
     }
     
@@ -165,7 +168,11 @@ public class PlayerController : MonoBehaviour
     
     private void ControlPlayer()
     {
-        //
+        // Input on mobile
+        activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed,inputJoystick.Horizontal, strafeAcceleration * Time.deltaTime);
+        activeHoverSpeed = Mathf.Lerp(activeHoverSpeed,inputJoystick.Vertical, hoverAcceleration * Time.deltaTime);
+        
+        //Input on PC
         activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed,Input.GetAxisRaw("Horizontal"), strafeAcceleration * Time.deltaTime);
         activeHoverSpeed = Mathf.Lerp(activeHoverSpeed,Input.GetAxisRaw("Hover"), hoverAcceleration * Time.deltaTime);
         

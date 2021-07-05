@@ -24,6 +24,7 @@ public class MenuManager : MonoBehaviour
       screenWidth = Screen.width;
       InitShopButton();
       UpdateSpaceshipPreview();
+      UpdateGoldText();
    }
 
    private void Update()
@@ -147,7 +148,10 @@ public class MenuManager : MonoBehaviour
       ChangeMenu(MenuType.ShopMenu);
    }
 
-   
+   private void UpdateGoldText()
+   {
+      goldText.text = SaveManager.Instance.getGold().ToString();
+   }
    
    private enum MenuType
    {

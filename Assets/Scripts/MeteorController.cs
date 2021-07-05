@@ -17,6 +17,8 @@ public class MeteorController : MonoBehaviour
     private Material baseMaterial;
     private Renderer[] renderers;
 
+    public bool isGoldenMeteor = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,11 @@ public class MeteorController : MonoBehaviour
 
     public void DestroyMeteor()
     {
+        if (isGoldenMeteor == true)
+        {
+            //add gold
+            SaveManager.Instance.addGold();
+        }
         
         //Remove from alive list
         MeteorManager.Instance.aliveMeteor.Remove(gameObject);

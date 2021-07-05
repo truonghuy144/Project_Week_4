@@ -640,6 +640,8 @@ MonoBehaviour:
   - {fileID: 9140638446683666396, guid: 1abf6908e9bdea54ab49a90e616fe0ca, type: 3}
   - {fileID: 8912974521749198573, guid: d8ed7613b27ce6f45a21d65c2a2fb1f9, type: 3}
   meteorSpawnDistance: 30
+  goldenMeteorSpawnChange: 0.2
+  goldenMeteorPrefab: {fileID: 9204173390621148123, guid: 26e48e4478f4cd840924310f7965ae36, type: 3}
   spawnTime: 1.5
   aliveMeteor: []
   minSpawnX: -2
@@ -660,6 +662,111 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &471751032
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2126438197}
+    m_Modifications:
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Name
+      value: Fixed Joystick
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!1 &496429217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1791,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!65 &1129556702
 BoxCollider:
@@ -1711,6 +1818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1065d6672f8521c42852a67e45563a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputJoystick: {fileID: 2106904718}
   strafeSpeed: 10
   hoverSpeed: 7.5
   misslesPrefabs: {fileID: 4072676732187782177, guid: e2a4a89e9718c7c46a4a3c24663c06e8, type: 3}
@@ -1822,7 +1930,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &1297176150
 MonoBehaviour:
@@ -1836,6 +1944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1065d6672f8521c42852a67e45563a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputJoystick: {fileID: 2106904718}
   strafeSpeed: 10
   hoverSpeed: 7.5
   misslesPrefabs: {fileID: 4072676732187782177, guid: e2a4a89e9718c7c46a4a3c24663c06e8, type: 3}
@@ -2349,6 +2458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1065d6672f8521c42852a67e45563a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputJoystick: {fileID: 2106904718}
   strafeSpeed: 10
   hoverSpeed: 7.5
   misslesPrefabs: {fileID: 4072676732187782177, guid: e2a4a89e9718c7c46a4a3c24663c06e8, type: 3}
@@ -2372,7 +2482,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!1 &1605468923
 GameObject:
@@ -3257,6 +3367,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044035151}
   m_CullTransparentMesh: 1
+--- !u!224 &2106904715 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 471751032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2106904718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 471751032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2126438193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,6 +3481,7 @@ RectTransform:
   - {fileID: 1119083765}
   - {fileID: 323020999}
   - {fileID: 805526579}
+  - {fileID: 2106904715}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3509,6 +3636,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.055
       objectReference: {fileID: 0}
+    - target: {fileID: 2261538760669056641, guid: dacf507fa72490049943c3f2dcb949c9, type: 3}
+      propertyPath: m_Constraints
+      value: 56
+      objectReference: {fileID: 0}
     - target: {fileID: 2261538760669056643, guid: dacf507fa72490049943c3f2dcb949c9, type: 3}
       propertyPath: inGameManager
       value: 
@@ -3579,6 +3710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1065d6672f8521c42852a67e45563a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputJoystick: {fileID: 2106904718}
   strafeSpeed: 10
   hoverSpeed: 7.5
   misslesPrefabs: {fileID: 4072676732187782177, guid: e2a4a89e9718c7c46a4a3c24663c06e8, type: 3}

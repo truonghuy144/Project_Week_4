@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 8912974521749198573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 8685996195225189647}
   m_Father: {fileID: 0}
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorSpeed: 500
   targetMaterial: {fileID: 2100000, guid: 58a0c1accc4d3434ab98b29c4c23b117, type: 2}
+  isGoldenMeteor: 0
 --- !u!54 &8295083876411394784
 Rigidbody:
   m_ObjectHideFlags: 0
