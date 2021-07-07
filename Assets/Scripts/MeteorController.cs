@@ -70,14 +70,14 @@ public class MeteorController : MonoBehaviour
 
     public void DestroyMeteor()
     {
-        if (isGoldenMeteor == true)
+        if (isGoldenMeteor == true && GameManager.Instance != null)
         {
             //add gold
             SaveManager.Instance.addGold();
         }
         
         //Remove from alive list
-        MeteorManager.Instance.aliveMeteor.Remove(gameObject);
+        MeteorManager.Instance.OnMeteorKill(gameObject);
         //play partical fx
         
         //disable movement
@@ -95,5 +95,10 @@ public class MeteorController : MonoBehaviour
             other.gameObject.GetComponent<PlayerController>().OnMeteorImpact();
             DestroyMeteor();
         }
+    }
+
+    public void IncreaseSpeed(float speedIncrease)
+    {
+        meteorSpeed += speedIncrease;
     }
 }

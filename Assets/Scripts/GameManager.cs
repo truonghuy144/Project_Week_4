@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int currentSpaceshipIndex = 0;
     public GameObject currentSpaceship => spaceshipPrefabs[currentSpaceshipIndex];
     public int CurrentSpaceshipIndex => currentSpaceshipIndex;
+    public int currentLevelIndex = 0;
     
 
     public static GameManager Instance;

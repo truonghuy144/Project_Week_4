@@ -406,7 +406,7 @@ MonoBehaviour:
   healthBarChangeTime: 1
   pauseMenu: {fileID: 1643704375}
   deathMenu: {fileID: 1119083764}
-  levelCompletedMenu: {fileID: 316821967}
+  levelCompletedMenu: {fileID: 0}
   meteorToKillText: {fileID: 425061573}
 --- !u!4 &356266983
 Transform:
@@ -803,12 +803,12 @@ MonoBehaviour:
   - {fileID: 9140638446683666396, guid: 1abf6908e9bdea54ab49a90e616fe0ca, type: 3}
   - {fileID: 8912974521749198573, guid: d8ed7613b27ce6f45a21d65c2a2fb1f9, type: 3}
   meteorSpawnDistance: 30
-  goldenMeteorSpawnChange: 0.2
+  goldenMeteorSpawnChange: 0.25
   goldenMeteorPrefab: {fileID: 9204173390621148123, guid: 26e48e4478f4cd840924310f7965ae36, type: 3}
-  spawnTime: 1.5
-  meteorToFinish: 5
+  spawnTime: 1.75
+  meteorToFinish: 10
   inGameManager: {fileID: 356266982}
-  speedIncrease: 1.2
+  speedIncrease: 1.5
   aliveMeteor: []
   minSpawnX: -2
   maxSpawnX: 2
@@ -3436,7 +3436,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934207143}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: b49291694b955b04796c530789cf1933, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: 6721f73020d12414ab1102dd098153a2, type: 2}
 --- !u!82 &1934207148
 AudioSource:
   m_ObjectHideFlags: 0

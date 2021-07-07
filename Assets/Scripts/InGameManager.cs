@@ -12,7 +12,9 @@ public class InGameManager : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject deathMenu;
+    public GameObject levelCompletedMenu;
 
+    public Text meteorToKillText;
     
     public void ChangeHealthBar(int maxHealth, int currentHealth)
     {
@@ -76,12 +78,21 @@ public class InGameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
-    
-
     public void OpenDeathMenu()
     {
         Time.timeScale = 0f;
         deathMenu.SetActive(true);
+    }
+
+    public void ChangeMeteorKillCount(int toKill)
+    {
+        meteorToKillText.text = "Meteor to kill: " + toKill.ToString();
+    }
+
+    public void OpenLevelComlpetedMenu()
+    {
+        Time.timeScale = 0f;
+        levelCompletedMenu.SetActive(true);
     }
     
 }

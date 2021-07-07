@@ -16,11 +16,22 @@ public class SaveManager : MonoBehaviour
         {
             Instance = this;
             Load();
+           
         }
     }
 
     public SaveClass saveClass;
 
+    public void CompletedNextLevel()
+    {
+        saveClass.levelCompleted++;
+        Save();
+    }
+
+    public int GetLevelCompleted()
+    {
+        return saveClass.levelCompleted;
+    }
     public void addGold()
     {
         saveClass.gold++;

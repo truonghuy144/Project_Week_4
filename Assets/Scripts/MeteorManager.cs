@@ -32,15 +32,23 @@ public class MeteorManager : MonoBehaviour
 
     public float spawnTime = 2f;
     private float timer = 0f;
+
+    public int meteorToFinish = 5;
+    public InGameManager inGameManager;
+    public float speedIncrease = 1.2f;
+    private int meteorControl = 0;
     
+    [HideInInspector]
     public List<GameObject> aliveMeteor  = new List<GameObject>();
     
-    public float minSpawnX = -2f, maxSpawnX = 2f, minSpawnY = -1f, maxSpawnY = 0f;
+    [HideInInspector]
+    public float minSpawnX = 0f, maxSpawnX = 1f, minSpawnY = 0f, maxSpawnY = 1f;
     
     // Start is called before the first frame update
     void Start()
     {
         timer = spawnTime;
+        inGameManager.ChangeMeteorKillCount(meteorToFinish);
     }
 
     // Update is called once per frame
@@ -55,6 +63,31 @@ public class MeteorManager : MonoBehaviour
         }
     }
 
+    public void OnMeteorKill(GameObject meteor)
+    {
+        meteorToFinish--;
+        aliveMeteor.Remove(meteor);
+
+        if (meteorToFinish <= 0)
+        {
+            if (GameManager.Instance != null)
+            {
+                int thisLevelIndex = GameManager.Instance.currentLevelIndex;
+                int lastLevelCompleted = SaveManager.Instance.GetLevelCompleted();
+                if (thisLevelIndex >= lastLevelCompleted)
+                {
+                    SaveManager.Instance.CompletedNextLevel();
+                }
+                
+                inGameManager.OpenLevelComlpetedMenu();
+            }
+            else
+            {
+                inGameManager.ChangeMeteorKillCount(meteorToFinish);
+            }
+        }
+    }
+    
     private void SpawnNewMeteor()
     {
         float newX = Random.Range(minSpawnX, maxSpawnX);
@@ -77,6 +110,8 @@ public class MeteorManager : MonoBehaviour
             gameObject = Instantiate(meteorPrefabs[meteorNumber], spawnPos, meteorPrefabs[meteorNumber].transform.rotation);
         }
         
+        gameObject.GetComponent<MeteorController>().IncreaseSpeed(meteorControl * speedIncrease);
+        meteorControl++;
         aliveMeteor.Add(gameObject);
     }
 
