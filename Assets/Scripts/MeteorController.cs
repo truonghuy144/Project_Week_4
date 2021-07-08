@@ -19,6 +19,8 @@ public class MeteorController : MonoBehaviour
 
     public bool isGoldenMeteor = false;
 
+    public ParticleSystem explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,11 +80,9 @@ public class MeteorController : MonoBehaviour
         
         //Remove from alive list
         MeteorManager.Instance.OnMeteorKill(gameObject);
+        
         //play partical fx
-        
-        //disable movement
-        
-        //disable colliders
+        Instantiate(explosion, transform.position, Quaternion.identity);
         
         //destroy gameobject with a delay
         Destroy(gameObject); 

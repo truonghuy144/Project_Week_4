@@ -36,12 +36,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveClass.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MeteorController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shooting.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MeteorManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MeteorController.cs" />
       </list>
     </option>
   </component>
@@ -96,7 +96,8 @@
       <workItem from="1624700162687" duration="3857000" />
       <workItem from="1625279290734" duration="958000" />
       <workItem from="1625476609484" duration="10618000" />
-      <workItem from="1625580672896" duration="12685000" />
+      <workItem from="1625580672896" duration="13286000" />
+      <workItem from="1625683222332" duration="1304000" />
     </task>
     <servers />
   </component>

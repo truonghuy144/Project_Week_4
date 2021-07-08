@@ -130,6 +130,7 @@ MonoBehaviour:
   meteorSpeed: 500
   targetMaterial: {fileID: 2100000, guid: 58a0c1accc4d3434ab98b29c4c23b117, type: 2}
   isGoldenMeteor: 0
+  explosion: {fileID: 5824993888003683223, guid: e7066defee2a08a42907d20130c43390, type: 3}
 --- !u!54 &8295083876411394784
 Rigidbody:
   m_ObjectHideFlags: 0
