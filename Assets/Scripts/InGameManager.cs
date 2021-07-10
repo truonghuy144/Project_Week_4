@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class InGameManager : MonoBehaviour
 {
+    public GameObject misslesPrefabs;
+    public Transform[] missleSpawnPoints;
     
+     
     public Image healthBarFill;
     public float healthBarChangeTime = 10f;
 
@@ -76,6 +79,14 @@ public class InGameManager : MonoBehaviour
 
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnFireButtonClicked()
+    {
+        foreach (Transform rocketsSpawnPoint in missleSpawnPoints)
+        {
+            Instantiate(misslesPrefabs, rocketsSpawnPoint.position, misslesPrefabs.transform.rotation);
+        }
     }
     
     public void OpenDeathMenu()
