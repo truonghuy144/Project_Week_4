@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 #if UNITY_EDITOR
-    using UnityEditor;    
+using UnityEditor;
 #endif
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
 {
     public GameObject[] spaceshipPrefabs;
     public Texture2D[] spaceShipTexture;
+    public Image[] textureImage;
 
     
     public int currentSpaceshipIndex = 0;
@@ -21,25 +23,22 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    void Start()
-    {   
-        #if UNITY_EDITOR
-        SpaceshipTexture();
-        #endif
-    }
-#if UNITY_EDITOR
+    
+
     [ContextMenu("SpaceshipTexture")]
     public void SpaceshipTexture()
     {
         spaceShipTexture = new Texture2D[spaceshipPrefabs.Length];
+#if UNITY_EDITOR
         for (int i = 0; i < spaceshipPrefabs.Length; i++)
         {
             GameObject prefab = spaceshipPrefabs[i];
             Texture2D texture = AssetPreview.GetAssetPreview(prefab);
             spaceShipTexture[i] = texture;
         }
-    }
 #endif
+    }
+
         
     
     
