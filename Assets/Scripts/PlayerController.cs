@@ -103,13 +103,18 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (Transform rocketsSpawnPoint in missleSpawnPoints)
-            {
-                Instantiate(misslesPrefabs, rocketsSpawnPoint.position, misslesPrefabs.transform.rotation);
-            }
+            SpawnRockets();
         }
     }
-    
+
+    public void SpawnRockets()
+    {
+        foreach (Transform rocketsSpawnPoint in missleSpawnPoints)
+        {
+            Instantiate(misslesPrefabs, rocketsSpawnPoint.position, Quaternion.identity);
+        }
+    }
+        
     // Rotate Player
     private void RotatePlayer()
     {

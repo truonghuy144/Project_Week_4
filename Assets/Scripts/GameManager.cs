@@ -23,21 +23,27 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    
 
+    public void Start()
+    {
+        #if UNITY_EDITOR
+        SpaceshipTexture();
+        #endif
+    }
+#if UNITY_EDITOR
     [ContextMenu("SpaceshipTexture")]
     public void SpaceshipTexture()
     {
         spaceShipTexture = new Texture2D[spaceshipPrefabs.Length];
-#if UNITY_EDITOR
+
         for (int i = 0; i < spaceshipPrefabs.Length; i++)
         {
             GameObject prefab = spaceshipPrefabs[i];
             Texture2D texture = AssetPreview.GetAssetPreview(prefab);
             spaceShipTexture[i] = texture;
         }
-#endif
     }
+#endif
 
         
     

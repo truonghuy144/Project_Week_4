@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+   
    private PlayerController activePlayerController;
 
    private void Awake()
@@ -54,6 +55,11 @@ public class PlayerManager : MonoBehaviour
          activePlayerController = spaceship.GetComponent<PlayerController>();
          return;
       }
+   }
+
+   public void FireRocket()
+   {
+      activePlayerController.SpawnRockets();
    }
    
 }
